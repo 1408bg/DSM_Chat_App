@@ -9,7 +9,7 @@ import 'package:dsm_chat/title.dart';
 import 'package:flutter/services.dart';
 import 'dart:io' show Platform;
 
-const String _ver = "0.3";
+const String _ver = "0.4";
 
 void main() => runApp(
   MediaQuery(
@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
   Future<void> _initSharedPreferences() async {
     _prefs = await SharedPreferences.getInstance();
     _address = _prefs.getString('address')!;
-    _socket = IO.io('http://$_address',
+    _socket = IO.io(_address,
       IO.OptionBuilder()
         .setTransports(['websocket'])
         .disableAutoConnect()
@@ -102,7 +102,7 @@ class _MyAppState extends State<MyApp> {
     var res = null;
     try {
       res = await http.get(
-          Uri.parse("http://$_address$address"),
+          Uri.parse("$_address$address"),
           headers: {
             "user-header" : "flutter-v$_ver"
           }

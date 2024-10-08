@@ -5,7 +5,7 @@ import "package:http/http.dart" as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 
-const String _ver = "0.3";
+const String _ver = "0.4";
 
 class privacy extends StatelessWidget {
   const privacy({super.key});
@@ -48,7 +48,7 @@ class _PrivacyAppState extends State<PrivacyApp> {
     var res = null;
     try {
       res = await http.get(
-          Uri.parse("http://$_address$address"),
+          Uri.parse("$_address$address"),
           headers: {
             "user-header" : "flutter-v$_ver"
           }

@@ -7,7 +7,7 @@ import 'dart:io' show Platform;
 import "package:http/http.dart" as http;
 import 'package:url_launcher/url_launcher.dart';
 
-const String ver = "0.3";
+const String ver = "0.4";
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -60,7 +60,7 @@ class _StartPageState extends State<StartPage> {
                   style: const TextStyle(height: 1),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'input ip address',
+                    labelText: 'input ip address'
                   ),
                   onSubmitted: (text){
                     _prefs.setString('address', _ipController.text);
@@ -81,7 +81,7 @@ class _StartPageState extends State<StartPage> {
                 },
                 child: Text('추천 주소 / $_address')
               ),
-              const SizedBox(height: 16,),
+              const SizedBox(height: 16),
               Text(ver.compareTo(_ver) == 0 ? "최신 버전입니다" : "신규 업데이트가 나왔습니다", style: const TextStyle(fontSize: 18)),
               TextButton(
                 onPressed: () {
